@@ -28,20 +28,20 @@ struct CasinoView: View {
                 .background(Color.black)
                 .position(x:215,y:50)
             
-            onTapGesture {
-                VStack {
-                    Spacer()
-                    NavigationLink(destination: CasinoView()) {
-                        Text("Enter Casino")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.black)
-                            .cornerRadius(10)
-                    }
-                }
-            }
+//            onTapGesture {
+//                VStack {
+//                    Spacer()
+//                    NavigationLink(destination: CasinoView()) {
+//                        Text("Enter Casino")
+//                            .font(.title)
+//                            .fontWeight(.bold)
+//                            .padding()
+//                            .foregroundColor(.white)
+//                            .background(Color.black)
+//                            .cornerRadius(10)
+//                    }
+//                }
+//            }
         }
     }
 }
