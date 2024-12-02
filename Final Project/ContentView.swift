@@ -10,52 +10,47 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        NavigationView {
-            ZStack {
-                Image("Outside Casino")
-                    .resizable()
-                    .aspectRatio(contentMode: .fill)
-                    .edgesIgnoringSafeArea(.all)
-                    .scaledToFill()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+        NavigationView {//this sets up another view the viewer can access
+            ZStack {//aligns both axises when considering the following code
+                Image("Outside Casino")// adds image to the app
+                    .resizable()//allows the image to be changed in shape
+                    .aspectRatio(contentMode: .fill)//allows image to fill the screen
+                    .edgesIgnoringSafeArea(.all)//image can take up all space
+                    .scaledToFill()//image can fit inside of the app
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)//changes image dimensions
                 
-                Text("Slot Simulator")
-                    .foregroundColor(.white)
-                    .font(.largeTitle).bold()
-                    .position(x:150,y:8)
+                Text("Slot Simulator")//shows the text "Slot Simulator"
+                    .foregroundColor(.white)//text color is made white
+                    .font(.largeTitle).bold()//text font is large and bold
+                    .position(x:150,y:8)//changes the location of the text
                 
-                VStack {
-                    Spacer()
-                    NavigationLink(destination: CasinoView()) {
-                        Text("Enter Casino")
-                            .font(.title)
-                            .fontWeight(.bold)
-                            .padding()
-                            .foregroundColor(.white)
-                            .background(Color.black)
-                            .cornerRadius(10)
-                        
-                    }
-                   
-                }
-            }
-        }
-    }
+                VStack {//vertically stacks the following code
+                    Spacer()//provides space and adds a gap inside the app
+                    NavigationLink(destination: CasinoView()) {//provides a link that takes you to the next link "CasinoView"
+                        Text("Enter Casino")//shows the text "Enter Casino"
+                            .font(.title)// makes "Enter Casino" text a title
+                            .fontWeight(.bold)// makes "Enter Casino" text bold
+                            .padding()//moves "Enter Casino" up
+                            .foregroundColor(.white)// makes "Enter Casino" text white
+                            .background(Color.black)// makes "Enter Casino" background black
+                            .cornerRadius(10)// makes "Enter Casino" background rounded
+                    }//ends a statement
+                }//ends a statement
+            }//ends a statement
+        }//ends a statement
+    }//ends a statement
+}//ends a statement
+#Preview {//allows app to be seen live
+    ContentView()//allows the initial view to be seen
 }
 
-
-
-#Preview {
-    ContentView()
-}
-
-struct Slots: View{
-    let name: String
-    var body: some View {
-        NavigationLink("Enter \(name)") {
-            Image(name)
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-        }
-    }
-}
+//struct Slots: View{
+//    let name: String
+//    var body: some View {
+//        NavigationLink("Enter \(name)") {
+//            Image(name)
+//                .resizable()
+//                .aspectRatio(contentMode: .fill)
+//        }
+//    }
+//}
