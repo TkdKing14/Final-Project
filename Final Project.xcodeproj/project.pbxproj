@@ -6,12 +6,6 @@
 	objectVersion = 77;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		DFA19E3A2CFE0B2E0082B322 /* CasinoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA19E352CFE0B2E0082B322 /* CasinoView.swift */; };
-		DFA19E442CFE0E310082B322 /* CasinoView2.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA19E432CFE0E310082B322 /* CasinoView2.swift */; };
-		DFA19E462CFE0FC10082B322 /* SlotsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFA19E452CFE0FC10082B322 /* SlotsView.swift */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXContainerItemProxy section */
 		370828C92CECF0B800552B08 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -33,9 +27,6 @@
 		370828B82CECF0B700552B08 /* Final Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Final Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		370828C82CECF0B800552B08 /* Final ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Final ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		370828D22CECF0B800552B08 /* Final ProjectUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Final ProjectUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		DFA19E352CFE0B2E0082B322 /* CasinoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasinoView.swift; sourceTree = "<group>"; };
-		DFA19E432CFE0E310082B322 /* CasinoView2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CasinoView2.swift; sourceTree = "<group>"; };
-		DFA19E452CFE0FC10082B322 /* SlotsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SlotsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -84,9 +75,6 @@
 		370828AF2CECF0B700552B08 = {
 			isa = PBXGroup;
 			children = (
-				DFA19E432CFE0E310082B322 /* CasinoView2.swift */,
-				DFA19E452CFE0FC10082B322 /* SlotsView.swift */,
-				DFA19E352CFE0B2E0082B322 /* CasinoView.swift */,
 				370828BA2CECF0B700552B08 /* Final Project */,
 				370828CB2CECF0B800552B08 /* Final ProjectTests */,
 				370828D52CECF0B800552B08 /* Final ProjectUITests */,
@@ -248,9 +236,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFA19E3A2CFE0B2E0082B322 /* CasinoView.swift in Sources */,
-				DFA19E442CFE0E310082B322 /* CasinoView2.swift in Sources */,
-				DFA19E462CFE0FC10082B322 /* SlotsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
