@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct SlotsView: View {
-    @State private var turnScore = 0
-    @State private var gameScore = 0
-    @State private var randomValue0 = 0
-    @State private var randomValue1 = 0
-    @State private var randomValue2 = 0
-    @State private var rotation = 0.0
-    @State private var gameOver = false
-    var body: some View {
-        ZStack {
-            Image("Slot Machine 2")
-                .resizable()
-                .aspectRatio(contentMode: .fill)
-                .edgesIgnoringSafeArea(.all)
-                .scaledToFill()
-                .frame(width: 500, height: 500)
+    @State private var turnScore = 0                            //privides the main bases of the variable turn score
+    @State private var gameScore = 0                            //privides the main bases of the variable game score
+    @State private var randomValue0 = 0                         //privides the main bases of the variable randomvalue0
+    @State private var randomValue1 = 0                         //privides the main bases of the variable randomvalue1
+    @State private var randomValue2 = 0                         //privides the main bases of the variable randomvalue1
+    @State private var rotation = 0.0                           //privides the main bases of the variable rotation
+    @State private var gameOver = false                         //privides the main bases of the variable randomvalue1
+    var body: some View {                                       //this sets up another view the viewer can access
+        ZStack {                                                //aligns both axises when considering the following code
+            Image("Slot Machine 2")                             //adds "slot machine 2" image to the app
+                .resizable()                                    //allows image to be resized
+                .aspectRatio(contentMode: .fill)                //fits picture into the given space
+                .edgesIgnoringSafeArea(.all)                    //allows picture to extend past the given boarders
+                .scaledToFill()                                 //allows picture to fit inside of the app
+                .frame(width: 500, height: 500)                 //makes the picture extend to these lengths
             Rectangle()
                 .frame(width: 300, height: 140)
                 .position(x:250, y: 352)
@@ -31,31 +31,38 @@ struct SlotsView: View {
             
             Image("pips\(randomValue0)")
                 .resizable()
-                .frame(width: 100, height: 100)
-                .position(x:145, y:355)
+                .frame(width: 90, height: 90)
+                .border(.blue,width:4)
+                .position(x:130, y:350)
+                
                 .padding()
             Image("pips\(randomValue1)")
                 .resizable()
-                .frame(width: 100, height: 100)
-                .position(x:250, y:355)
+                .frame(width: 90, height: 90)
+                .border(.yellow,width:4)
+                .position(x:230, y:350)
+               
                 .padding()
             Image("pips\(randomValue2)")
                 .resizable()
-                .frame(width: 100, height: 100)
-                .position(x:355, y:355)
+                .frame(width: 90, height: 90)
+                .border(.red,width:4)
+                .position(x:330, y:350)
                 .padding()
+                
+            //dif color boarder
             HStack {
                 Button("Spin") {
-                    chooseRandom0(times: 3)
-                    chooseRandom1(times: 6)
-                    chooseRandom2(times: 9)
+                    chooseRandom0(times: 5)
+                    chooseRandom1(times: 8)
+                    chooseRandom2(times: 11)
                     }
-                    .position(x:112, y:480)
-                    .font(.title)           // makes "Enter Casino" text a title
-                    .fontWeight(.bold)      // makes "Enter Casino" text bold
-                    .padding()              //moves "Enter Casino" up
-                    .foregroundColor(.white)    // makes "Enter Casino" text white
-                    .cornerRadius(10)       // makes "Enter Casino" background rounded
+                    .position(x:112, y:484)
+                    .font(.title)           // makes "spin" text a title
+                    .fontWeight(.bold)      // makes "spin" text bold
+                    .padding()              //moves "spin" up
+                    .foregroundColor(.white)    // makes "spin" text white
+                    .cornerRadius(10)       // makes "spin" background rounded
                     
                 }
         }
@@ -63,15 +70,17 @@ struct SlotsView: View {
     func chooseRandom0(times: Int) {
         if times > 0 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                randomValue0 = Int.random(in: 1...9)
+                randomValue0 = Int.random(in: 1...13)
                 chooseRandom0(times: times - 1)
             }
-        } 
+        } else {
+            //jvg
+        }
     }
     func chooseRandom1(times: Int) {
         if times > 0 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                randomValue1 = Int.random(in: 1...9)
+                randomValue1 = Int.random(in: 1...13)
                 chooseRandom1(times: times - 1)
                 
                 
@@ -81,7 +90,7 @@ struct SlotsView: View {
     func chooseRandom2(times: Int) {
         if times > 0 {
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                randomValue2 = Int.random(in: 1...9)
+                randomValue2 = Int.random(in: 1...13)
                 chooseRandom2(times: times - 1)
                 
                 
