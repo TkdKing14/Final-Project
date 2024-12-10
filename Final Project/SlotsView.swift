@@ -74,9 +74,11 @@ struct SlotsView: View {
             Alert(title: Text("\(message)"), message: Text("Game Over"), dismissButton:
                     .destructive(Text("Play again"), action: {
                         withAnimation {
-                        
+                            
                             spinOver = false
+                            
                         }
+                        
                     }))
             
         })
@@ -116,7 +118,10 @@ struct SlotsView: View {
                 }
             } else {
                 borderWidth2 = 4
-                if randomValue0 == randomValue1 && randomValue1 == randomValue2 {
+                if randomValue0 == 1 && randomValue1 == 1 && randomValue2 == 1 {
+                    message = "JACKPOT!"
+                    spinOver = true
+                }   else if randomValue0 == randomValue1 && randomValue1 == randomValue2 {
                     message = "You got a match!"
                     spinOver = true
                 } else if (randomValue0 == randomValue1 || randomValue1 == randomValue2 || randomValue0 == randomValue2) {
