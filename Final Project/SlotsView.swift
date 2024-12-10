@@ -8,16 +8,19 @@
 import SwiftUI
 
 struct SlotsView: View {
-    @State private var turnScore = 0                            //privides the main bases of the variable turn score
-    @State private var gameScore = 0                            //privides the main bases of the variable game score
-    @State private var randomValue0 = 0                         //privides the main bases of the variable randomvalue0
-    @State private var randomValue1 = 0                         //privides the main bases of the variable randomvalue1
-    @State private var randomValue2 = 0                         //privides the main bases of the variable randomvalue1
-    @State private var rotation = 0.0                           //privides the main bases of the variable rotation
-    @State private var gameOver = false                         //privides the main bases of the variable randomvalue1
-    @State private var borderWidth0 = 0                        //privides the main bases of the variable randomvalue1
-    @State private var borderWidth1 = 0                        //privides the main bases of the variable randomvalue1
-    @State private var borderWidth2 = 0                        //privides the main bases of the variable randomvalue1
+    @State private var turnScore = 0                            //provides the main bases of the variable turn score
+    @State private var gameScore = 0                            //provides the main bases of the variable game score
+    @State private var randomValue0 = 0                         //provides the main bases of the variable randomvalue0
+    @State private var randomValue1 = 0                         //provides the main bases of the variable randomvalue1
+    @State private var randomValue2 = 0                         //provides the main bases of the variable randomvalue1
+    @State private var rotation = 0.0                           //provides the main bases of the variable rotation
+    @State private var gameOver = false                         //provides the main bases of the variable randomvalue1
+    @State private var borderWidth0 = 0                         //provides the main bases of the variable randomvalue1
+    @State private var borderWidth1 = 0                         //provides the main bases of the variable randomvalue1
+    @State private var borderWidth2 = 0                         //provides the main bases of the variable randomvalue1
+    @State private var pipNumbers = [1,3,3,3,5,5,5,5,9,9]             //provides the main bases of the variable randomvalue1
+    @State private var spinOver = false                        //provides the main bases of the variable randomvalue1
+    @State private var message = ""                        //provides the main bases of the variable randomvalue1
     var body: some View {                                       //this sets up another view the viewer can access
         ZStack {                                                //aligns both axises when considering the following code
             Image("Slot Machine 2")                             //adds "slot machine 2" image to the app
@@ -67,58 +70,80 @@ struct SlotsView: View {
                 
             }
         }
+        .alert(isPresented: $spinOver, content: {
+            Alert(title: Text("\(message)"), message: Text("Game Over"), dismissButton:
+                    .destructive(Text("Play again"), action: {
+                        withAnimation {
+                        
+                            spinOver = false
+                        }
+                    }))
+            
+        })
     }
-    func chooseRandom0(times: Int) {
-        if times > 0 {
-            borderWidth0 = 0
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                randomValue0 = Int.random(in: 1...13)
-                chooseRandom0(times: times - 1)
+               
+               func chooseRandom0(times: Int) {
+            if times > 0 {
+                borderWidth0 = 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    // randomValue0 = Int.random(in: 1...13)
+                    randomValue0 = pipNumbers.randomElement() ?? 5
+                    chooseRandom0(times: times - 1)
+                }
+            } else {
+                borderWidth0 = 4
             }
-        } else {
-            borderWidth0 = 4
         }
-    }
-    func chooseRandom1(times: Int) {
-        if times > 0 {
-            borderWidth1 = 0
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                randomValue1 = Int.random(in: 1...13)
-                chooseRandom1(times: times - 1)
+               func chooseRandom1(times: Int) {
+            if times > 0 {
+                borderWidth1 = 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    //randomValue1 = Int.random(in: 1...9)
+                    randomValue1 = pipNumbers.randomElement() ?? 5
+                    chooseRandom1(times: times - 1)
+                }
+            } else {
+                borderWidth1 = 4
             }
-        } else {
-            borderWidth1 = 4
         }
-    }
-    func chooseRandom2(times: Int) {
-        if times > 0 {
-            borderWidth2 = 0
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                randomValue2 = Int.random(in: 1...13)
-                chooseRandom2(times: times - 1)
+               func chooseRandom2(times: Int) {
+            if times > 0 {
+                borderWidth2 = 0
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                    //randomValue2 = Int.random(in: 1...13)
+                    randomValue2 = pipNumbers.randomElement() ?? 5
+                    chooseRandom2(times: times - 1)
+                }
+            } else {
+                borderWidth2 = 4
+                if randomValue0 == randomValue1 && randomValue1 == randomValue2 {
+                    message = "You got a match!"
+                    spinOver = true
+                } else if (randomValue0 == randomValue1 || randomValue1 == randomValue2 || randomValue0 == randomValue2) {
+                    message = "Almost!"
+                    spinOver = true
+                }
+              
             }
-        } else {
-            borderWidth2 = 4
         }
-    }
-    struct CustomText: View {
-        let text: String
-        var body: some View {
-            Text(text).font(.custom("Marker Felt", size: 36))
+               struct CustomText: View {
+            let text: String
+            var body: some View {
+                Text(text).font(.custom("Marker Felt", size: 36))
+            }
         }
-    }
-    struct CustomButtonStyle: ButtonStyle {
-        func makeBody(configuration: Configuration) -> some View {
-            configuration.label
-                .frame(width: 50)
-                .font(Font.custom("Marker Felt", size: 24))
-                .padding()
-                .background(.red).opacity(configuration.isPressed ? 0.0 : 1.0)
-                .foregroundColor(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
+               struct CustomButtonStyle: ButtonStyle {
+            func makeBody(configuration: Configuration) -> some View {
+                configuration.label
+                    .frame(width: 50)
+                    .font(Font.custom("Marker Felt", size: 24))
+                    .padding()
+                    .background(.red).opacity(configuration.isPressed ? 0.0 : 1.0)
+                    .foregroundColor(.white)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+            }
         }
-    }
-}
-#Preview {
-    SlotsView()
-}
+               }
+               #Preview {
+            SlotsView()
+        }
