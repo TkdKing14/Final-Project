@@ -43,13 +43,3 @@ struct ContentView: View {
 #Preview {                                          //allows app to be seen live
     ContentView()                                   //allows the initial view to be seen
 }                                                   //ends preview
-//struct Slots: View{
-//    let name: String
-//    var body: some View {
-//        NavigationLink("Enter \(name)") {
-//            Image(name)
-//                .resizable()
-//                .aspectRatio(contentMode: .fill)
-//        }
-//    }
-//}
