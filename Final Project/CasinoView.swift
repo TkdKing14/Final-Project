@@ -16,7 +16,7 @@ struct CasinoView: View {                                       //this starts a 
                 .edgesIgnoringSafeArea(.all)                    //allows picture to extend past the given boarders
                 .scaledToFill()                                 //allows picture to fit inside of
                 .frame(maxWidth: .infinity, maxHeight: .infinity) //makes the npicture extend to infinity
-            Text("Im gonna win big today I can feel it!")       //provides the text "Im gonna win big today I can feel it!"
+            CustomText(text:"Im gonna win big today I can feel it!")       //provides the text "Im gonna win big today I can feel it!"
                 .font(.title).bold()                            //makes the following text bold and large
                 .foregroundColor(.white)                        //makes the text color white
                 .background(Color.black)                        //makes the text background black
@@ -36,7 +36,13 @@ struct CasinoView: View {                                       //this starts a 
             }                                                   //ends VStack
         }                                                       //ends ZStack
     }                                                           //ends some view
-}                                                               //ends CasinoView
+}
+struct CustomText: View {
+    let text: String
+    var body: some View {
+        Text(text).font(.custom("Marker Felt", size: 30))
+    }
+}//ends CasinoView
 #Preview {                                                      //allows app to be seen live
     ContentView()                                               //allows the initial view to be seen
 }                                                               //ends preview statement

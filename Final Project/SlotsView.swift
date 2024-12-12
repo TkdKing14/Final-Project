@@ -18,7 +18,7 @@ struct SlotsView: View {
     @State private var borderWidth0 = 0                         //provides the main bases of the variable borderWidth0
     @State private var borderWidth1 = 0                         //provides the main bases of the variable borderWidth1
     @State private var borderWidth2 = 0                         //provides the main bases of the variable borderWidth2
-    @State private var pipNumbers = [1,3,3,3,5,5,5,5,7,7,9,9]   //these numbers supply the amount of pictures in each row. number 1 is listed 1 time as it is the picture pips 1. this means it has a 1 in 12 chance to hit a 7 in each row. the cherrys however are 5s and are lisetd 4 times meaning they are a lot more common
+    @State private var pipNumbers = [1,3,3,3,5,5,5,5,7,7,9,9]   //these numbers supply the amount of pictures in each row. number 1 is listed 1 time as it is the picture pips 1. this means it has a 1 in 12 chance to hit a 7 in each row as 7 is the picture pip 1. the cherrys however are 5s and are lisetd 4 times meaning they are a lot more common
     @State private var spinOver = false                         //provides the main bases of the variable spinOver (end of spin)
     @State private var message = ""                             //provides the main bases of the variable message
     var body: some View {                                       //this sets up another view the viewer can access
@@ -71,9 +71,9 @@ struct SlotsView: View {
                         spinOver = false                    //after play agin is selected spinOver is returned to false
                     }                                       //ends with animation statement
                 }))                                         //ends the play again action aswell as the title and destructive text
-        })                                                      //ends alert is presented and content
-    }                                                           //ends body some view
-    func chooseRandom0(times: Int) {                 //creates the function chooseRandom0
+        })                                                  //ends alert is presented and content
+    }                                                       //ends body some view
+    func chooseRandom0(times: Int) {                        //creates the function chooseRandom0
         if times > 0 {                                      // is times is greater than 0 then the following code takes place
             borderWidth0 = 0                                //border width is invisible
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {  //makes the chooserandom0 select a new item every .5 seconds
@@ -84,55 +84,42 @@ struct SlotsView: View {
             borderWidth0 = 4                                //when time = 0 make the border width 4 or visible
         }                                                   //ends else statement
     }                                                       //ends choose random Int
-    func chooseRandom1(times: Int) {                 //creates the function chooseRandom0
+    func chooseRandom1(times: Int) {                        //creates the function chooseRandom1
         if times > 0 {                                      // is times is greater than 0 then the following code takes place
-            borderWidth0 = 0                                //border width is invisible
+            borderWidth1 = 0                                //border width is invisible
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {  //makes the chooserandom0 select a new item every .5 seconds
                 randomValue1 = pipNumbers.randomElement() ?? 5  //is the randomValue0 selects a rondom element default the image to pip 5 (cherry)
                 chooseRandom1(times: times - 1)             //decrease 1 time every time a new picture is selected
             }                                               //ends dispatch queue
         } else {                                            //ends if times statement and starts an else statement
-            borderWidth0 = 4                                //when time = 0 make the border width 4 or visible
+            borderWidth1 = 4                                //when time = 0 make the border width 4 or visible
         }                                                   //ends else statement
     }                                                       //ends choose random Int
     func chooseRandom2(times: Int) {
         if times > 0 {
             borderWidth2 = 0
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                //randomValue2 = Int.random(in: 1...13)
                 randomValue2 = pipNumbers.randomElement() ?? 5
                 chooseRandom2(times: times - 1)
             }
         } else {
             borderWidth2 = 4
+            //if times left = 0 then the border will have
             if randomValue0 == 1 && randomValue1 == 1 && randomValue2 == 1 {
                 message = "JACKPOT!"
                 spinOver = true
+                //these few lines of code show that is pips 1 is detected on all three rows, message "JACKPOT" will apear on the alert.
+                
             }   else if randomValue0 == randomValue1 && randomValue1 == randomValue2 {
                 message = "You got a match!"
                 spinOver = true
+                //these few lines of code show that if row 1 is the same as row 2, and row 2 is the same as row 3, it will display the message "You got a match!"
             } else if (randomValue0 == randomValue1 || randomValue1 == randomValue2 || randomValue0 == randomValue2) {
                 message = "Almost!"
                 spinOver = true
+                //this code shows that if row 1 is the same as 2 or row 2 is the same as row 3. it also states or row 1 is the same as 3, the message will state "Almost!"
             }
             
-        }
-    }
-    struct CustomText: View {
-        let text: String
-        var body: some View {
-            Text(text).font(.custom("Marker Felt", size: 36))
-        }
-    }
-    struct CustomButtonStyle: ButtonStyle {
-        func makeBody(configuration: Configuration) -> some View {
-            configuration.label
-                .frame(width: 50)
-                .font(Font.custom("Marker Felt", size: 24))
-                .padding()
-                .background(.red).opacity(configuration.isPressed ? 0.0 : 1.0)
-                .foregroundColor(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 10))
         }
     }
 }
