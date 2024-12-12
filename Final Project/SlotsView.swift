@@ -53,9 +53,9 @@ struct SlotsView: View {
                 .padding()                                      //provides space around the image
             HStack {                                            //lines the button up horizontaly
                 Button("Spin") {                                //button with the word spin
-                    chooseRandom0(times: 5)                     //makes the choose random variable spin 5 times when on the first row
-                    chooseRandom1(times: 8)                     //makes the choose random variable spin 8 times when on the second row
-                    chooseRandom2(times: 11)                    //makes the choose random variable spin 11 times when on the thrid row
+                    chooseRandom0(times: 20)                     //makes the choose random variable spin 5 times when on the first row
+                    chooseRandom1(times: 30)                     //makes the choose random variable spin 8 times when on the second row
+                    chooseRandom2(times: 40)                    //makes the choose random variable spin 11 times when on the thrid row
                 }                                               //ends the spin button
                 .position(x:112, y:484)                         //positions the button to the cords
                 .font(.title)                                   //makes "spin" text a title
@@ -76,7 +76,7 @@ struct SlotsView: View {
     func chooseRandom0(times: Int) {                        //creates the function chooseRandom0
         if times > 0 {                                      // is times is greater than 0 then the following code takes place
             borderWidth0 = 0                                //border width is invisible
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {  //makes the chooserandom0 select a new item every .5 seconds
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {  //makes the chooserandom0 select a new item every .5 seconds
                 randomValue0 = pipNumbers.randomElement() ?? 5  //is the randomValue0 selects a rondom element default the image to pip 5 (cherry)
                 chooseRandom0(times: times - 1)             //decrease 1 time every time a new picture is selected
             }                                               //ends dispatch queue
@@ -87,7 +87,7 @@ struct SlotsView: View {
     func chooseRandom1(times: Int) {                        //creates the function chooseRandom1
         if times > 0 {                                      // is times is greater than 0 then the following code takes place
             borderWidth1 = 0                                //border width is invisible
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {  //makes the chooserandom0 select a new item every .5 seconds
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {  //makes the chooserandom0 select a new item every .5 seconds
                 randomValue1 = pipNumbers.randomElement() ?? 5  //is the randomValue0 selects a rondom element default the image to pip 5 (cherry)
                 chooseRandom1(times: times - 1)             //decrease 1 time every time a new picture is selected
             }                                               //ends dispatch queue
@@ -98,7 +98,7 @@ struct SlotsView: View {
     func chooseRandom2(times: Int) {
         if times > 0 {
             borderWidth2 = 0
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
                 randomValue2 = pipNumbers.randomElement() ?? 5
                 chooseRandom2(times: times - 1)
             }

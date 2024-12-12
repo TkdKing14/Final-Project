@@ -41,8 +41,9 @@ struct CustomText: View {
     let text: String
     var body: some View {
         Text(text).font(.custom("Marker Felt", size: 30))
+        //allows certain text to go with this font and settings
     }
-}//ends CasinoView
+}                                                               //ends CasinoView
 #Preview {                                                      //allows app to be seen live
     ContentView()                                               //allows the initial view to be seen
 }                                                               //ends preview statement
