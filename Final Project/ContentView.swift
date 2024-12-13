@@ -4,10 +4,7 @@
 //
 //  Created by Carson Payne on 11/19/24.
 //
-
-
 import SwiftUI
-
 struct ContentView: View {
     var body: some View {
         NavigationView {                            //this sets up another view the viewer can access
@@ -23,7 +20,6 @@ struct ContentView: View {
                     .foregroundColor(.white)        //text color is made white
                     .font(.largeTitle).bold()       //text font is large and bold
                     .position(x:150,y:8)            //changes the location of the text
-                
                 VStack {                            //vertically stacks the following code
                     Spacer()                        //provides space and adds a gap inside the app
                     NavigationLink(destination: CasinoView()) {     //provides a link that takes you to the next link "CasinoView"

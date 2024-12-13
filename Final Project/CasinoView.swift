@@ -4,9 +4,7 @@
 //
 //  Created by Carson Payne on 11/20/24.
 //
-
 import SwiftUI
-
 struct CasinoView: View {                                       //this starts a new view that allows people to enter the casino
     var body: some View {
         ZStack {                                                //aligns both axises when considering the following code

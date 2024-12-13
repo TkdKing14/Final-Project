@@ -4,17 +4,12 @@
 //
 //  Created by Carson Payne on 12/2/24.
 //
-
 import SwiftUI
-
 struct SlotsView: View {
-    @State private var turnScore = 0                            //provides the main bases of the variable turn score
-    @State private var gameScore = 0                            //provides the main bases of the variable game score
     @State private var randomValue0 = 0                         //provides the main bases of the variable randomvalue0
     @State private var randomValue1 = 0                         //provides the main bases of the variable randomvalue1
     @State private var randomValue2 = 0                         //provides the main bases of the variable randomvalue2
     @State private var rotation = 0.0                           //provides the main bases of the variable rotation
-    @State private var gameOver = false                         //provides the main bases of the variable gmeover
     @State private var borderWidth0 = 0                         //provides the main bases of the variable borderWidth0
     @State private var borderWidth1 = 0                         //provides the main bases of the variable borderWidth1
     @State private var borderWidth2 = 0                         //provides the main bases of the variable borderWidth2
@@ -119,7 +114,6 @@ struct SlotsView: View {
                 spinOver = true
                 //this code shows that if row 1 is the same as 2 or row 2 is the same as row 3. it also states or row 1 is the same as 3, the message will state "Almost!"
             }
-            
         }
     }
 }
