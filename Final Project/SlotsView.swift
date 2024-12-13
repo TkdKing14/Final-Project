@@ -44,6 +44,7 @@ struct SlotsView: View {
                 .resizable()                                    //resizes the picture to fit on the screen
                 .frame(width: 90, height: 90)                   //makes the image pips resize to these lengths and widths
                 .border(.red,width: CGFloat(borderWidth2))      //the border of the image that comes after its done spinning, is shown as red and follows the commands from the state vartiable which originally sets the border width to 0
+            //CGFloat in lines 34, 40, and 46 allows the change in the picture, in this case the boarder of the pips
                 .position(x:330, y:350)                         //moves image pips to these positions
                 .padding()                                      //provides space around the image
             HStack {                                            //lines the button up horizontaly
